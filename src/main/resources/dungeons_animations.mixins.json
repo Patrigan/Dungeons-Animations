@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.infamous.dungeons_animations.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "dungeons_animations.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
