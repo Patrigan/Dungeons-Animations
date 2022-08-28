@@ -5,6 +5,11 @@
   "minVersion": "0.8",
   "refmap": "dungeons_animations.refmap.json",
   "mixins": [
+    "EvokerMixin",
+    "PiglinBruteMixin",
+    "PiglinMixin",
+    "PillagerMixin",
+    "VindicatorMixin"
   ],
   "client": [
   ],
