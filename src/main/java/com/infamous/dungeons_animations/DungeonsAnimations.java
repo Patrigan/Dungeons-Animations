@@ -1,5 +1,7 @@
 package com.infamous.dungeons_animations;
 
+import com.infamous.dungeons_animations.client.ClientsEvents;
+import com.infamous.dungeons_animations.mod.DungeonsAnimationsEntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -9,6 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(DungeonsAnimations.MODID)
@@ -26,23 +29,25 @@ public class DungeonsAnimations
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
         // Register the processIMC method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
-
+        GeckoLib.initialize();
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        DungeonsAnimationsEntityType.ENTITY_TYPES.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
 
     }
 
     private void processIMC(final InterModProcessEvent event) {
     }
 
-    private void setup(final FMLCommonSetupEvent event)
-    {
+    private void setup(final FMLCommonSetupEvent event) {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-
+       MinecraftForge.EVENT_BUS.register(new ClientsEvents());
     }
 }

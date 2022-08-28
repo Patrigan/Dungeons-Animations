@@ -5,10 +5,16 @@
   "minVersion": "0.8",
   "refmap": "dungeons_animations.refmap.json",
   "mixins": [
+    "EvokerMixin",
+    "IronGolemMixin",
+    "PiglinBruteMixin",
+    "PiglinMixin",
+    "PillagerMixin",
+    "VindicatorMixin"
   ],
   "client": [
   ],
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 5
   }
 }
